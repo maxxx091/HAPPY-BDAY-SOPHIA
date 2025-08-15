@@ -1,63 +1,78 @@
 body {
-  background: #ffb84d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5d48d;
+    font-family: Arial, sans-serif;
 }
 
 .card {
-  width: 400px;
-  height: 300px;
-  perspective: 1000px;
-  cursor: pointer;
+    width: 350px;
+    height: 500px;
+    perspective: 1000px;
+    cursor: pointer;
 }
 
-.outside, .inside {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  backface-visibility: hidden;
+.front, .inside {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 1s ease;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.front {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.front h1 {
+    position: absolute;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    padding: 8px 12px;
+    border-radius: 8px;
 }
 
 .inside {
-  background: white;
-  transform: rotateY(180deg);
-  text-align: center;
-  padding: 15px;
+    background: white;
+    transform: rotateY(180deg);
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
 }
 
-.inside p {
-  font-size: 0.95em;
-  line-height: 1.4em;
-  margin-bottom: 15px;
-}
-
-.inside-img {
-  width: 100px;
-  border-radius: 8px;
-  margin-bottom: 15px;
+.message {
+    margin-bottom: 20px;
 }
 
 .gifs {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
+    display: flex;
+    justify-content: space-around;
 }
 
 .gif {
-  width: 100px; /* Bigger GIFs */
-  height: auto;
+    width: auto;
+    height: 80px;
 }
 
-.card.open .outside {
-  transform: rotateY(-180deg);
+.card.open .front {
+    transform: rotateY(180deg);
 }
 
 .card.open .inside {
-  transform: rotateY(0deg);
-}
-
-.front, .back {
-  background: #fff;
+    transform: rotateY(360deg);
 }
