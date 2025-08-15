@@ -1,40 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <div class="card">
-        <div class="front">
-            <img src="images/bg-image.png" alt="Card Front" class="bg-img">
-            <h1>Click to Open 🎁</h1>
-        </div>
-        <div class="inside">
-            <div class="message">
-                <p>I know I am far away,<br>
-                But you're in my head everyday.<br>
-                Sad that I can’t greet you face to face,<br>
-                So through these works, I say<br>
-                <strong>Happy Birthday!</strong></p>
 
-                <p>We may not have pics pa tgt, but here hehe 💛<br>
-                I love you so much, Mahal ko!</p>
-            </div>
-            <div class="gifs">
-                <img src="images/left-dancer.gif" alt="Left dancer" class="gif">
-                <img src="images/right-dancer.gif" alt="Right dancer" class="gif">
-            </div>
-        </div>
+  <!-- Side GIFs (hidden until the card opens) -->
+  <img src="left.gif"  alt="Left decoration"  class="side-gif left-gif">
+  <img src="right.gif" alt="Right decoration" class="side-gif right-gif">
+
+  <!-- Music -->
+  <audio id="birthday-audio" src="happy-birthday.mp3" preload="auto"></audio>
+
+  <!-- Card -->
+  <div class="card" id="card">
+    <div class="outside">
+      <div class="front">
+        <p>Happy Birthday</p>
+        <img src="cheesecake.jpeg" alt="Cheesecake" class="cheesecake-img">
+      </div>
+      <div class="back"></div>
     </div>
 
-    <script>
-        const card = document.querySelector('.card');
-        card.addEventListener('click', () => {
-            card.classList.toggle('open');
-        });
-    </script>
+    <div class="inside">
+      <p id="message">
+        I know I am far away,<br>
+        But you're in my head everyday.<br>
+        Sad that I can’t greet you face to face,<br>
+        So through these works, I say<br>
+        <strong>Happy Birthday!</strong><br><br>
+        We may not have pics pa tgt, but here hehe ❤️
+      </p>
+      <img src="your-square-image.jpeg" alt="Special Picture" class="inside-img">
+    </div>
+  </div>
+
+  <script>
+    const card  = document.getElementById('card');
+    const audio = document.getElementById('birthday-audio');
+    const gifs  = document.querySelectorAll('.side-gif');
+    let playedOnce = false;
+
+    // Open/close on click (works on mobile too)
+    card.addEventListener('click', () => {
+      card.classList.toggle('open');
+      const isOpen = card.classList.contains('open');
+
+      // Show/hide GIFs
+      gifs.forEach(g => g.classList.toggle('show', isOpen));
+
+      // Play only the first time it opens
+      if (isOpen && !playedOnce) {
+        audio.currentTime = 0;
+        audio.play().catch(()=>{ /* ignore blocked autoplay errors */ });
+        playedOnce = true;
+      }
+    });
+  </script>
 </body>
 </html>
