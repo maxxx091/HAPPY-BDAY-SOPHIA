@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #ffcf7d; /* Soft orange background */
+  background-color: #fdbf00;
 }
 
 .card {
@@ -30,8 +30,7 @@ body {
   transform: rotateY(-130deg);
 }
 
-.outside,
-.inside {
+.outside, .inside {
   height: 100%;
   width: 50%;
   position: absolute;
@@ -39,13 +38,13 @@ body {
 }
 
 .inside {
-  background: linear-gradient(to right, #fff5e1, #ffffff 30%);
+  background: linear-gradient(to right, #e7e7e7, #ffffff 30%);
   line-height: 1.5;
   padding: 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   left: 50%;
 }
@@ -58,8 +57,7 @@ body {
   cursor: pointer;
 }
 
-.front,
-.back {
+.front, .back {
   height: 100%;
   width: 100%;
   position: absolute;
@@ -70,39 +68,44 @@ body {
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-.front-img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 15px;
-}
-
-.back {
-  transform: rotateY(180deg);
-  background: linear-gradient(to left, #fff5e1, #ffffff 30%);
-}
-
-.outside p {
+.front p {
   font-size: 23px;
   text-transform: uppercase;
   margin-top: 15px;
   text-align: center;
-  letter-spacing: 4px;
-  color: #d35400;
+  letter-spacing: 6px;
+  color: #000046;
 }
 
-.inside h2 {
-  font-size: 16px;
-  color: #000;
+.back {
+  transform: rotateY(180deg);
+  background: linear-gradient(to left, #e7e7e7, #ffffff 30%);
 }
 
-.inside-img {
-  width: 150px;
-  height: 150px;
+.card-image {
+  width: 100%;
+  height: auto;
   object-fit: cover;
+}
+
+.inside-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-top: 15px;
   border-radius: 10px;
+}
+
+.inside h1 {
+  font-size: 80px;
+  margin-bottom: 10px;
+}
+
+.poem {
+  font-size: 16px;
+  margin-top: 20px;
 }
