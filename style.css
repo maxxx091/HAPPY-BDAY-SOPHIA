@@ -1,132 +1,63 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
 body {
-  background-color: #ffb84d; /* Soft warm orange */
+  background: #ffb84d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .card {
-  width: 640px;
-  height: 400px;
-  position: absolute;
-  margin: auto;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  perspective: 1200px;
-  transition: 1s;
-}
-
-.card:hover {
-  transform: rotate(-5deg);
-}
-
-.card:hover .outside {
-  transform: rotateY(-130deg);
-}
-
-.outside,
-.inside {
-  height: 100%;
-  width: 50%;
-  position: absolute;
-  left: 50.1%;
-}
-
-.inside {
-  background: linear-gradient(to right, #f6f1eb, #ffffff 30%);
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.outside {
-  transform-style: preserve-3d;
-  z-index: 1;
-  transform-origin: left;
-  transition: 2s;
+  width: 400px;
+  height: 300px;
+  perspective: 1000px;
   cursor: pointer;
 }
 
-.front,
-.back {
-  height: 100%;
+.outside, .inside {
   width: 100%;
+  height: 100%;
   position: absolute;
   backface-visibility: hidden;
 }
 
-.front {
-  background-color: #fffaf2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-}
-
-.back {
+.inside {
+  background: white;
   transform: rotateY(180deg);
-  background: linear-gradient(to left, #f6f1eb, #ffffff 30%);
+  text-align: center;
+  padding: 15px;
 }
 
-.outside p {
-  font-size: 23px;
-  text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 6px;
-  color: #cc6600;
+.inside p {
+  font-size: 0.95em;
+  line-height: 1.4em;
   margin-bottom: 15px;
 }
 
-/* Cheesecake image on the front */
-.cheesecake-img {
-  width: 200px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-/* Inside message */
-#message {
-  font-size: 18px;
-  color: #333;
-  max-width: 90%;
-  line-height: 1.4;
-  word-wrap: break-word;
-  padding: 0 10px;
-}
-
-/* Inside square picture */
 .inside-img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
+  width: 100px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin-bottom: 15px;
 }
 
-/* Side GIF styling */
-.side-gif {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 120px;
+.gifs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.gif {
+  width: 100px; /* Bigger GIFs */
   height: auto;
-  z-index: -1;
 }
 
-.left-gif {
-  left: 30px;
+.card.open .outside {
+  transform: rotateY(-180deg);
 }
 
-.right-gif {
-  right: 30px;
+.card.open .inside {
+  transform: rotateY(0deg);
+}
+
+.front, .back {
+  background: #fff;
 }
