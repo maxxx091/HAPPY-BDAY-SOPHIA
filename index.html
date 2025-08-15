@@ -1,49 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="card" id="card">
-    <div class="outside">
-      <div class="front"></div>
-      <div class="back"></div>
+    <div class="card">
+        <div class="front">
+            <img src="images/bg-image.png" alt="Card Front" class="bg-img">
+            <h1>Click to Open 🎁</h1>
+        </div>
+        <div class="inside">
+            <div class="message">
+                <p>I know I am far away,<br>
+                But you're in my head everyday.<br>
+                Sad that I can’t greet you face to face,<br>
+                So through these works, I say<br>
+                <strong>Happy Birthday!</strong></p>
+
+                <p>We may not have pics pa tgt, but here hehe 💛<br>
+                I love you so much, Mahal ko!</p>
+            </div>
+            <div class="gifs">
+                <img src="images/left-dancer.gif" alt="Left dancer" class="gif">
+                <img src="images/right-dancer.gif" alt="Right dancer" class="gif">
+            </div>
+        </div>
     </div>
-    <div class="inside">
-      <p>
-        I know I am far away,<br>
-        But you're in my head everyday.<br>
-        Sad that I can’t greet you face to face,<br>
-        So through these works, I say<br>
-        <strong>Happy Birthday!</strong><br><br>
-        We may not have pics pa tgt, but here hehe ❤️
-      </p>
-      <img src="your-photo.jpeg" alt="Special Picture" class="inside-img">
-      <div class="gifs">
-        <img src="left-dancer.gif" class="gif">
-        <img src="right-dancer.gif" class="gif">
-      </div>
-    </div>
-  </div>
 
-  <!-- Birthday music -->
-  <audio id="birthdayMusic" src="happy-birthday.mp3" preload="auto"></audio>
-
-  <script>
-    const card = document.getElementById('card');
-    const music = document.getElementById('birthdayMusic');
-    let isOpened = false;
-
-    card.addEventListener('click', () => {
-      card.classList.toggle('open');
-      if (card.classList.contains('open') && !isOpened) {
-        music.play();
-        isOpened = true;
-      }
-    });
-  </script>
+    <script>
+        const card = document.querySelector('.card');
+        card.addEventListener('click', () => {
+            card.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
