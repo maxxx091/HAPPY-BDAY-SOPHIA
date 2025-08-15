@@ -1,9 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const card = document.getElementById("birthdayCard");
-  const audio = document.getElementById("birthdayAudio");
+const card = document.querySelector('.card');
+const audio = document.getElementById('birthday-audio');
 
-  card.addEventListener("mouseenter", () => {
-    audio.currentTime = 0;
+let isPlaying = false;
+
+card.addEventListener('mouseenter', () => {
+  if (!isPlaying) {
     audio.play();
-  });
+    isPlaying = true;
+  }
 });
