@@ -1,41 +1,65 @@
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-body {
+* {
+  padding: 0;
   margin: 0;
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  background-color: #ffb84d; /* warm orange */
 }
 
-/* --- Card layout (original 3D style) --- */
+body {
+  background-color: #ffcf7d; /* Soft orange background */
+}
+
 .card {
   width: 640px;
   height: 400px;
   position: absolute;
-  inset: 0;
   margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   perspective: 1200px;
-  transition: transform .6s ease;
+  transition: 1s;
 }
 
-/* Slight tilt on hover (optional) */
-.card:hover { transform: rotate(-5deg); }
+.card:hover {
+  transform: rotate(-5deg);
+}
 
-.outside, .inside {
+.card:hover .outside {
+  transform: rotateY(-130deg);
+}
+
+.outside,
+.inside {
   height: 100%;
   width: 50%;
   position: absolute;
+  left: 50.1%;
+}
+
+.inside {
+  background: linear-gradient(to right, #fff5e1, #ffffff 30%);
+  line-height: 1.5;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   left: 50%;
 }
 
 .outside {
   transform-style: preserve-3d;
+  z-index: 1;
   transform-origin: left;
-  transition: transform 1.2s ease;
-  z-index: 2; /* sits above the inside until opened */
+  transition: 2s;
   cursor: pointer;
 }
 
-.front, .back {
+.front,
+.back {
   height: 100%;
   width: 100%;
   position: absolute;
@@ -43,81 +67,42 @@ body {
 }
 
 .front {
-  background: #ffffff;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  justify-content: center;
+}
+
+.front-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
 }
 
 .back {
   transform: rotateY(180deg);
-  background: linear-gradient(to left, #f2f2f2, #ffffff 30%);
+  background: linear-gradient(to left, #fff5e1, #ffffff 30%);
 }
 
-/* Open state: rotate the front away to reveal inside */
-.card.open .outside { transform: rotateY(-130deg); }
-
-/* Inside page (right side) */
-.inside {
-  background: linear-gradient(to right, #f6f1eb, #ffffff 30%);
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-/* Title on front */
 .outside p {
   font-size: 23px;
   text-transform: uppercase;
-  letter-spacing: 6px;
-  color: #cc6600;
-  margin-bottom: 12px;
+  margin-top: 15px;
+  text-align: center;
+  letter-spacing: 4px;
+  color: #d35400;
 }
 
-/* Cheesecake image on the front */
-.cheesecake-img {
-  width: 200px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-/* Inside message + photo */
-#message {
-  font-size: 18px;
-  color: #333;
-  max-width: 90%;
-  line-height: 1.4;
-  word-wrap: break-word;
-  padding: 0 10px;
+.inside h2 {
+  font-size: 16px;
+  color: #000;
 }
 
 .inside-img {
   width: 150px;
   height: 150px;
   object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border-radius: 10px;
 }
-
-/* --- Side GIFs (normal size; hidden until open) --- */
-.side-gif {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 120px;      /* keep original size */
-  height: auto;
-  opacity: 0;        /* hidden by default */
-  transition: opacity .4s ease;
-  pointer-events: none; /* avoid blocking clicks */
-  z-index: 1;
-}
-
-.left-gif  { left: 24px; }
-.right-gif { right: 24px; }
-
-.side-gif.show { opacity: 1; }  /* shown when card opens */
