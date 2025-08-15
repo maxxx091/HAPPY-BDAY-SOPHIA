@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #ffb84d; /* Softer orange */
+  background-color: #ffb84d; /* Soft warm orange */
 }
 
 .card {
@@ -99,6 +99,9 @@ body {
   font-size: 18px;
   color: #333;
   max-width: 90%;
+  line-height: 1.4;
+  word-wrap: break-word;
+  padding: 0 10px;
 }
 
 /* Inside square picture */
