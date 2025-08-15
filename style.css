@@ -99,10 +99,11 @@ body {
 }
 
 .inside-image {
-  width: 160px;
-  height: 160px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   margin-top: 8px;
   border-radius: 10px;
 }
+
 
