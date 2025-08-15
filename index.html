@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Birthday Card</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Side GIFs -->
-  <img src="left.gif" alt="Left Decoration" class="side-gif left-gif">
-  <img src="right.gif" alt="Right Decoration" class="side-gif right-gif">
-
-  <div class="card">
+  <div class="card" id="card">
     <div class="outside">
-      <div class="front">
-        <p>Happy Birthday</p>
-        <!-- Cheesecake image -->
-        <img src="cheesecake.jpeg" alt="Cheesecake" class="cheesecake-img">
-      </div>
+      <div class="front"></div>
       <div class="back"></div>
     </div>
     <div class="inside">
-      <!-- Editable message -->
-      <p id="message">
-        Happy Birthdayy Mahal ko, we don't have pics but here hehe, I love you so much
+      <p>
+        I know I am far away,<br>
+        But you're in my head everyday.<br>
+        Sad that I can’t greet you face to face,<br>
+        So through these works, I say<br>
+        <strong>Happy Birthday!</strong><br><br>
+        We may not have pics pa tgt, but here hehe ❤️
       </p>
-      <!-- Replaceable square picture -->
-      <img src="your-square-image.jpeg" alt="Special Picture" class="inside-img">
+      <img src="your-photo.jpeg" alt="Special Picture" class="inside-img">
+      <div class="gifs">
+        <img src="left-dancer.gif" class="gif">
+        <img src="right-dancer.gif" class="gif">
+      </div>
     </div>
   </div>
+
+  <!-- Birthday music -->
+  <audio id="birthdayMusic" src="happy-birthday.mp3" preload="auto"></audio>
+
+  <script>
+    const card = document.getElementById('card');
+    const music = document.getElementById('birthdayMusic');
+    let isOpened = false;
+
+    card.addEventListener('click', () => {
+      card.classList.toggle('open');
+      if (card.classList.contains('open') && !isOpened) {
+        music.play();
+        isOpened = true;
+      }
+    });
+  </script>
 </body>
 </html>
